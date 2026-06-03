@@ -23,4 +23,15 @@ public class UFDAO {
         }
         return 0;
     }
+
+    public UF buscarPorNome(String nomeUF) throws SQLException {
+        String sql = "SELECT * FROM UF WHERE UF = ?";
+        try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
+            stmt.setString(1, nomeUF);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) return new UF(rs.getInt("idUF"), rs.getString("UF"));
+            }
+        }
+        return null;
+    }
 }

@@ -24,4 +24,20 @@ public class CidadeDAO {
         }
         return 0;
     }
+
+    public Cidade buscarPorNomeEUf(String nomeCidade, int idUF) throws SQLException {
+        String sql = "SELECT * FROM Cidade WHERE Cidade = ? AND UF_idUF = ?";
+        try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
+            stmt.setString(1, nomeCidade);
+            stmt.setInt(2, idUF);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    Cidade c = new Cidade(rs.getInt("idCidade"));
+                    c.setCidade(rs.getString("Cidade"));
+                    return c;
+                }
+            }
+        }
+        return null;
+    }
 }

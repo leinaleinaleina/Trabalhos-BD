@@ -12,7 +12,7 @@ public class DDDDAO {
         String sql = "INSERT INTO Banco_agencia.DDD (DDD, DDDI_idDDDI) VALUES (?, ?)";
         try (PreparedStatement stmt = conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             stmt.setString(1, ddd.getDDD());
-            stmt.setInt(2, ddd.getDddi().getIdDDDI()); // FK para DDDI
+            stmt.setInt(2, ddd.getDddi().getIdDDDI()); 
             stmt.executeUpdate();
             try (ResultSet rs = stmt.getGeneratedKeys()) {
                 if (rs.next()) {

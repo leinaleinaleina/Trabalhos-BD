@@ -28,4 +28,20 @@ public class EnderecoDAO {
         }
         return 0;
     }
+
+    public Endereco buscarEnderecoExistente(String cep, int idBairro, int idLogradouro, int idCidade) throws SQLException {
+        String sql = "SELECT * FROM Endereco WHERE CEP = ? AND Bairro_idBairro = ? AND Logradouro_idLogradouro = ? AND Cidade_idCidade = ?";
+        try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
+            stmt.setString(1, cep);
+            stmt.setInt(2, idBairro);
+            stmt.setInt(3, idLogradouro);
+            stmt.setInt(4, idCidade);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return new Endereco(rs.getString("CEP"), rs.getInt("idEndereco"));
+                }
+            }
+        }
+        return null;
+    }
 }

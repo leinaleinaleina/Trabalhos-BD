@@ -47,7 +47,7 @@ public class Main {
             System.out.println("5- Realizar investimento");
             System.out.println("6- Consultar investimento");
             System.out.println("7- Realizar transacao");
-            System.out.println("8- Consultar transação");
+            System.out.println("8- Consultar transacao");
             System.out.println("0- Sair");
             System.out.println("---------------------------------------------");
             System.out.print("Escolha uma opçao: ");

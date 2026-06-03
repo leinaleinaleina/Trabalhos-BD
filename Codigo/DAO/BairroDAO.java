@@ -1,6 +1,5 @@
 package DAO;
 
-import Modelos.Classes_casodeuso.Banco;
 import Modelos.Classes_genericas.Bairro;
 import java.sql.*;
 
@@ -25,19 +24,19 @@ public class BairroDAO {
         return 0;
     }
 
-    public Banco buscarBancoPorId(int codBanco) throws SQLException {
-        String sql = "SELECT * FROM Banco WHERE Codbanco = ?";
+    public Bairro buscarPorNome(String nomeBairro) throws SQLException {
+        String sql = "SELECT * FROM Bairro WHERE Bairro = ?";
         try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
-            stmt.setInt(1, codBanco);
+            stmt.setString(1, nomeBairro);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
-                    Banco b = new Banco(rs.getInt("Codbanco"));
-                    b.setNomeBanco(rs.getString("Nomebanco"));
-                    b.setCNPJ(rs.getString("CNPJ"));
+                    Bairro b = new Bairro();
+                    b.setIdBairro(rs.getInt("idBairro"));
+                    b.setBairro(rs.getString("Bairro"));
                     return b;
                 }
             }
         }
-        return null; // Retorna null se o banco não existir
+        return null;
     }
 }

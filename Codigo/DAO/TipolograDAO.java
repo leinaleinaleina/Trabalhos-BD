@@ -24,4 +24,20 @@ public class TipolograDAO {
         }
         return 0;
     }
+
+    public Tipologra buscarPorNome(String nomeTipo) throws SQLException {
+        String sql = "SELECT * FROM Tipo_logradouro WHERE Tipo_logradouro = ?";
+        try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
+            stmt.setString(1, nomeTipo);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    Tipologra t = new Tipologra();
+                    t.setIdtipologra(rs.getInt("idTipo_logradouro"));
+                    t.setTipologra(rs.getString("Tipo_logradouro"));
+                    return t;
+                }
+            }
+        }
+        return null;
+    }
 }

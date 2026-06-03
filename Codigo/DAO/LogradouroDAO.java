@@ -24,4 +24,21 @@ public class LogradouroDAO {
         }
         return 0;
     }
+
+    public Logradouro buscarLogradouro(String nome, int idTipo) throws SQLException {
+        String sql = "SELECT * FROM Logradouro WHERE Logradouro = ? AND Tipo_logradouro_idTipo_logradouro = ?";
+        try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
+            stmt.setString(1, nome);
+            stmt.setInt(2, idTipo);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    Logradouro l = new Logradouro();
+                    l.setIdlogradouro(rs.getInt("idLogradouro"));
+                    l.setLogradouro(rs.getString("Logradouro"));
+                    return l;
+                }
+            }
+        }
+        return null;
+    }
 }
