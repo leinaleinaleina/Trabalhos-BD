@@ -1,7 +1,7 @@
 package Class.Classes_genericas;
 
 public class Cliente {
-    private int idCliente;
+    private final int idCliente;
     private String Nomecliente;
     private String CPF;
     private String Numero;

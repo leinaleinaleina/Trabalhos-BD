@@ -32,11 +32,23 @@ public class Endereco {
         return bairro;
     }
 
+    public void setBairro(Bairro bairro) {
+        this.bairro = bairro;
+    }
+
     public Cidade getCidade() {
         return cidade;
+    }
+
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
     }
     
     public Logradouro getLogradouro() {
         return logradouro;
+    }
+
+    public void setLogradouro(Logradouro logradouro) {
+        this.logradouro = logradouro;
     }
 }

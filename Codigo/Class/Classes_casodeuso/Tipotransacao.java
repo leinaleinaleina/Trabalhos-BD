@@ -16,4 +16,12 @@ public class Tipotransacao {
     public String getTipotransacao() {
         return Tipotransacao;
     }
+
+    public void setIdTipoTransacao(int idTipoTransacao) {
+        this.idTipoTransacao = idTipoTransacao;
+    }
+    
+    public void setTipotransacao(String Tipotransacao) {
+        this.Tipotransacao = Tipotransacao;
+    }
 }

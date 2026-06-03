@@ -25,4 +25,8 @@ public class DDD {
     public DDDI getDddi() {
         return dddi;
     }
+
+    public void setDddi(DDDI dddi) {
+        this.dddi = dddi;
+    }
 }

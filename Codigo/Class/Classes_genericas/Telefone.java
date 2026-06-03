@@ -26,4 +26,8 @@ public class Telefone {
         return ddd;
     }
 
+    public void setDDD(DDD ddd) {
+        this.ddd = ddd;
+    }
+
 }

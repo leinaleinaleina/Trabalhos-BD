@@ -1,0 +1,29 @@
+package Controller;
+
+import Class.Classes_genericas.Email;
+import DAO.EmailDAO;
+import java.sql.Connection;
+import java.sql.SQLException;
+
+public class EmailController {
+
+    public boolean cadastrarEmailCliente(String enderecoEmail, int idCliente) {
+        try (Connection conn = ConexaoBD.conectar()) {
+            // Como é apenas uma tabela, não precisamos estritamente de setAutoCommit(false),
+            // mas é bom manter o padrão de tratamento de erros.
+            
+            Email email = new Email();
+            email.setEmail(enderecoEmail);
+            
+            EmailDAO dao = new EmailDAO(conn);
+            dao.cadastrarEmailCliente(email, idCliente);
+            
+            System.out.println("E-mail " + enderecoEmail + " cadastrado com sucesso para o Cliente " + idCliente);
+            return true;
+
+        } catch (SQLException e) {
+            System.err.println("Erro ao cadastrar e-mail no banco de dados: " + e.getMessage());
+            return false;
+        }
+    }
+}
