@@ -1,7 +1,7 @@
 package DAO;
 
-import Class.Classes_casodeuso.Banco;
-import Class.Classes_genericas.Bairro;
+import Modelos.Classes_casodeuso.Banco;
+import Modelos.Classes_genericas.Bairro;
 import java.sql.*;
 
 public class BairroDAO {

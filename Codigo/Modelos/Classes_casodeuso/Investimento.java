@@ -1,4 +1,4 @@
-package Class.Classes_casodeuso;
+package Modelos.Classes_casodeuso;
 
 public class Investimento {
     private int idInvestimento;

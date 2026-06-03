@@ -1,6 +1,6 @@
 package DAO;
 
-import Class.Classes_genericas.Cidade;
+import Modelos.Classes_genericas.Cidade;
 import java.sql.*;
 
 public class CidadeDAO {
@@ -12,7 +12,7 @@ public class CidadeDAO {
         String sql = "INSERT INTO Banco_agencia.Cidade (Cidade, UF_idUF) VALUES (?, ?)";
         try (PreparedStatement stmt = conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             stmt.setString(1, cidade.getCidade());
-            stmt.setInt(2, cidade.getUf().getIdUF()); // Pega a FK
+            stmt.setInt(2, cidade.getUf().getIdUF()); 
             stmt.executeUpdate();
             
             try (ResultSet rs = stmt.getGeneratedKeys()) {

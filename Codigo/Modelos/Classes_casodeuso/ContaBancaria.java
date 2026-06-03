@@ -1,5 +1,5 @@
-package Class.Classes_casodeuso;
-import Class.Classes_genericas.Cliente;
+package Modelos.Classes_casodeuso;
+import Modelos.Classes_genericas.Cliente;
 
 public class ContaBancaria {
     private int idConta;

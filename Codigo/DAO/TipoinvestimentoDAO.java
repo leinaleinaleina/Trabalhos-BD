@@ -1,6 +1,6 @@
 package DAO;
 
-import Class.Classes_casodeuso.Tipoinvestimento;
+import Modelos.Classes_casodeuso.Tipoinvestimento;
 import java.sql.*;
 
 public class TipoinvestimentoDAO {
@@ -15,8 +15,6 @@ public class TipoinvestimentoDAO {
             stmt.executeUpdate();
             try (ResultSet rs = stmt.getGeneratedKeys()) {
                 if (rs.next()) {
-                    // Lembre-se de criar o método setIdTipoinvestimento na sua classe!
-                    // tipo.setIdTipoinvestimento(rs.getInt(1));
                     return rs.getInt(1);
                 }
             }

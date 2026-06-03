@@ -1,6 +1,6 @@
 package Controller;
 
-import Class.Classes_genericas.Email;
+import Modelos.Classes_genericas.Email;
 import DAO.EmailDAO;
 import java.sql.Connection;
 import java.sql.SQLException;

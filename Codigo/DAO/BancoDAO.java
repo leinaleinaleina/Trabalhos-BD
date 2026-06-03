@@ -1,6 +1,6 @@
 package DAO;
 
-import Class.Classes_casodeuso.*;
+import Modelos.Classes_casodeuso.*;
 import java.sql.*;
 public class BancoDAO {
     private Connection conexao;

@@ -1,16 +1,15 @@
 package Controller;
 
-import Class.Classes_casodeuso.*;
-import Class.Classes_genericas.*;
 import DAO.ClienteDAO;
 import DAO.ContaBancariaDAO;
+import Modelos.Classes_casodeuso.*;
+import Modelos.Classes_genericas.*;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
 public class ClienteController {
     
-    // Insere cliente chamando o DAO
     public int inserirNovoCliente(Cliente cliente) {
         try (Connection conn = ConexaoBD.conectar()) {
             ClienteDAO dao = new ClienteDAO(conn);
@@ -23,7 +22,7 @@ public class ClienteController {
         }
     }
 
-    // Busca por CPF e exibe as informações + extratos/investimentos exigidos
+    // Busca por CPF e exibe as informações do cliente e suas contas
     public void consultarEExibirInformacoes(String cpf) {
         try (Connection conn = ConexaoBD.conectar()) {
             
@@ -53,7 +52,7 @@ public class ClienteController {
                 System.out.println("Nenhum cliente encontrado com o CPF informado: " + cpf);
             }
         } catch (SQLException e) {
-            System.err.println("Erro ao consultar informações: " + e.getMessage());
+            System.err.println("Erro ao consultar informacoes: " + e.getMessage());
         }
     }
 }

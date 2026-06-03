@@ -1,6 +1,6 @@
 package DAO;
 
-import Class.Classes_genericas.Logradouro;
+import Modelos.Classes_genericas.Logradouro;
 import java.sql.*;
 
 public class LogradouroDAO {

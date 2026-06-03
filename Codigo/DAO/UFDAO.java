@@ -1,6 +1,6 @@
 package DAO;
 
-import Class.Classes_genericas.UF;
+import Modelos.Classes_genericas.UF;
 import java.sql.*;
 
 public class UFDAO {

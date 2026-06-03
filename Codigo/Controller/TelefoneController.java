@@ -1,11 +1,11 @@
 package Controller;
 
-import Class.Classes_genericas.DDD;
-import Class.Classes_genericas.DDDI;
-import Class.Classes_genericas.Telefone;
 import DAO.DDDDAO;
 import DAO.DDDIDAO;
 import DAO.TelefoneDAO;
+import Modelos.Classes_genericas.DDD;
+import Modelos.Classes_genericas.DDDI;
+import Modelos.Classes_genericas.Telefone;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -13,7 +13,7 @@ public class TelefoneController {
 
     public boolean cadastrarTelefoneCliente(String dddiTexto, String dddTexto, String numeroFone, int idCliente) {
         try (Connection conn = ConexaoBD.conectar()) {
-            conn.setAutoCommit(false); // Inicia transação protegida
+            conn.setAutoCommit(false); 
 
             try {
          
@@ -30,7 +30,7 @@ public class TelefoneController {
                 telefone.setDDD(ddd);
                 new TelefoneDAO(conn).cadastrarFoneCliente(telefone, idCliente);
 
-                conn.commit(); // Confirma a transação
+                conn.commit(); 
                 System.out.println("Telefone " + numeroFone + " cadastrado com sucesso para o Cliente " + idCliente);
                 return true;
 

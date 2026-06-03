@@ -1,4 +1,4 @@
-package Class.Classes_genericas;
+package Modelos.Classes_genericas;
 
 public class DDDI {
     private int idDDDI;

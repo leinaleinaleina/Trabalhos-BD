@@ -1,6 +1,6 @@
 package DAO;
 
-import Class.Classes_genericas.DDD;
+import Modelos.Classes_genericas.DDD;
 import java.sql.*;
 
 public class DDDDAO {

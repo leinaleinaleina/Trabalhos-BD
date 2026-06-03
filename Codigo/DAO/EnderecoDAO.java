@@ -1,6 +1,6 @@
 package DAO;
 
-import Class.Classes_genericas.Endereco;
+import Modelos.Classes_genericas.Endereco;
 import java.sql.*;
 
 public class EnderecoDAO {
@@ -9,7 +9,6 @@ public class EnderecoDAO {
     public EnderecoDAO(Connection conexao) { this.conexao = conexao; }
 
     public int cadastrar(Endereco endereco) throws SQLException {
-        // Usando o nome exato da tabela e colunas do seu PDF
         String sql = "INSERT INTO Banco_agencia.Endereco (CEP, Bairro_idBairro, Logradouro_idLogradouro, Cidade_idCidade) VALUES (?, ?, ?, ?)";
         
         try (PreparedStatement stmt = conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {

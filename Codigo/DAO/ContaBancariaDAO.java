@@ -1,7 +1,7 @@
 package DAO;
 
-import Class.Classes_casodeuso.*;
-import Class.Classes_genericas.*;
+import Modelos.Classes_casodeuso.*;
+import Modelos.Classes_genericas.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +25,7 @@ public class ContaBancariaDAO {
             
             stmt.executeUpdate();
             
-            // Retorna o próprio ID que recebemos, indicando sucesso!
+            // Retorna o próprio ID 
             return conta.getIdConta();
             }
     }
@@ -82,11 +82,16 @@ public class ContaBancariaDAO {
             stmt.setString(2, cpf);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
-                    ContaBancaria conta = new ContaBancaria(
-                        rs.getInt("idContabancaria"), 
-                        new Cliente(rs.getInt("Cliente_idCliente")), 
-                        new Agencia(rs.getInt("Agencia_Numeroagencia"))
-                    );
+
+                    Cliente cliente = new Cliente(rs.getInt("Cliente_idCliente"));
+                    
+                    Banco banco = new Banco(rs.getInt("Agencia_Banco_Codbanco"));
+                    Agencia agencia = new Agencia(rs.getInt("Agencia_Numeroagencia"));
+                    
+                    agencia.setBanco(banco); 
+                    
+                    ContaBancaria conta = new ContaBancaria(rs.getInt("idContabancaria"), cliente, agencia);
+                    
                     String saldoStr = rs.getString("Saldo");
                     conta.setSaldo(saldoStr != null && !saldoStr.isEmpty() ? Double.parseDouble(saldoStr) : 0.0);
                     return conta;

@@ -1,12 +1,12 @@
 package Controller;
 
-import Class.Classes_casodeuso.Agencia;
-import Class.Classes_casodeuso.Banco;
-import Class.Classes_casodeuso.ContaBancaria;
-import Class.Classes_genericas.Cliente;
 import DAO.AgenciaDAO;
 import DAO.BancoDAO;
 import DAO.ContaBancariaDAO;
+import Modelos.Classes_casodeuso.Agencia;
+import Modelos.Classes_casodeuso.Banco;
+import Modelos.Classes_casodeuso.ContaBancaria;
+import Modelos.Classes_genericas.Cliente;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -36,16 +36,16 @@ public class ContaController {
                 contaDAO.cadastrarConta(conta);
 
                 conn.commit();
-                System.out.println("Sucesso! Conta Bancária [" + idConta + "] aberta na Agência " + agencia.getIdAgencia());
+                System.out.println("Sucesso! Conta Bancaria [" + idConta + "] aberta na Agencia " + agencia.getIdAgencia());
                 return true;
 
             } catch (SQLException e) {
                 conn.rollback();
-                System.err.println("Falha na transação bancária. Rollback efetuado: " + e.getMessage());
+                System.err.println("Falha na transacao bancaria. Rollback efetuado: " + e.getMessage());
                 return false;
             }
         } catch (SQLException e) {
-            System.err.println("Erro de conexão à base de dados: " + e.getMessage());
+            System.err.println("Erro de conexao a base de dados: " + e.getMessage());
             return false;
         }
     }

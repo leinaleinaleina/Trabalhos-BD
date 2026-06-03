@@ -1,6 +1,6 @@
 package DAO;
 
-import Class.Classes_casodeuso.*;
+import Modelos.Classes_casodeuso.*;
 import Controller.ConexaoBD;
 import java.sql.*;
 import java.util.ArrayList;

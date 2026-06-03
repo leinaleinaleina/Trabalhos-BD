@@ -1,6 +1,6 @@
 package DAO;
 
-import Class.Classes_casodeuso.Tipotransacao;
+import Modelos.Classes_casodeuso.Tipotransacao;
 import java.sql.*;
 
 public class TipotransacaoDAO {

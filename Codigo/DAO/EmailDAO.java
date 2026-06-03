@@ -1,6 +1,6 @@
 package DAO;
 
-import Class.Classes_genericas.Email;
+import Modelos.Classes_genericas.Email;
 import java.sql.*;
 
 public class EmailDAO {

@@ -1,6 +1,6 @@
 package DAO;
 
-import Class.Classes_genericas.Telefone;
+import Modelos.Classes_genericas.Telefone;
 import java.sql.*;
 
 public class TelefoneDAO {

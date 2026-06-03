@@ -1,5 +1,5 @@
-package Class.Classes_casodeuso;
-import Class.Classes_genericas.Endereco;
+package Modelos.Classes_casodeuso;
+import Modelos.Classes_genericas.Endereco;
 
 public class Agencia {
     private int idAgencia;

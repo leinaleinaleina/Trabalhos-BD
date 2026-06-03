@@ -1,10 +1,10 @@
 package Controller;
 
-import Class.Classes_casodeuso.ContaBancaria;
-import Class.Classes_casodeuso.Investimento;
-import Class.Classes_casodeuso.Transacao;
 import DAO.InvestimentoDAO;
 import DAO.TransacaoDAO;
+import Modelos.Classes_casodeuso.ContaBancaria;
+import Modelos.Classes_casodeuso.Investimento;
+import Modelos.Classes_casodeuso.Transacao;
 import java.util.List;
 
 public class OperacoesController {
@@ -12,7 +12,6 @@ public class OperacoesController {
     private TransacaoDAO transacaoDAO;
     private InvestimentoDAO investimentoDAO;
 
-    // O construtor já instancia os DAOs para não precisarmos fazer isso toda hora
     public OperacoesController() {
         this.transacaoDAO = new TransacaoDAO();
         this.investimentoDAO = new InvestimentoDAO();
@@ -20,7 +19,7 @@ public class OperacoesController {
 
     // TRANSAÇÕES
     public boolean realizarTransacao(String descTipo, int tipoMovimentacao, double valor, String data, ContaBancaria conta) {
-        // O Controller apenas delega a função para o DAO correspondente
+
         return transacaoDAO.realizarTransacao(descTipo, tipoMovimentacao, valor, data, conta);
     }
 
@@ -30,7 +29,6 @@ public class OperacoesController {
 
     // INVESTIMENTOS
     public boolean realizarInvestimento(String descTipo, double valor, String data, ContaBancaria conta) {
-        // O Controller delega a função para o DAO correspondente
         return investimentoDAO.realizarInvestimento(descTipo, valor, data, conta);
     }
 

@@ -1,6 +1,6 @@
 package DAO;
 
-import Class.Classes_genericas.Tipologra;
+import Modelos.Classes_genericas.Tipologra;
 import java.sql.*;
 
 public class TipolograDAO {

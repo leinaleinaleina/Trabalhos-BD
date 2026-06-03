@@ -1,7 +1,7 @@
 package DAO;
 
-import Class.Classes_genericas.Cliente;
-import Class.Classes_genericas.Endereco;
+import Modelos.Classes_genericas.Cliente;
+import Modelos.Classes_genericas.Endereco;
 import java.sql.*;
 
 public class ClienteDAO {

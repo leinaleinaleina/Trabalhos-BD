@@ -1,7 +1,7 @@
 package DAO;
 
-import Class.Classes_casodeuso.*;
 import Controller.ConexaoBD;
+import Modelos.Classes_casodeuso.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +46,7 @@ public class TransacaoDAO {
                 }
 
                 conn.commit();
-                conta.setSaldo(novoSaldo); // Atualiza o objeto na memória
+                conta.setSaldo(novoSaldo); 
                 System.out.println("Transacao efetuada com sucesso! Novo saldo: R$ " + String.format("%.2f", novoSaldo));
                 return true;
                 
