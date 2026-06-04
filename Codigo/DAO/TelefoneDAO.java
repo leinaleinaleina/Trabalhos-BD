@@ -8,7 +8,6 @@ public class TelefoneDAO {
 
     public TelefoneDAO(Connection conexao) { this.conexao = conexao; }
 
-    // Salva na tabela Fonecliente vinculando o ID do Cliente
     public int cadastrarFoneCliente(Telefone telefone, int idCliente) throws SQLException {
         String sql = "INSERT INTO Banco_agencia.Fonecliente (Fonecliente, DDD_idDDD, Cliente_idCliente) VALUES (?, ?, ?)";
         try (PreparedStatement stmt = conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {

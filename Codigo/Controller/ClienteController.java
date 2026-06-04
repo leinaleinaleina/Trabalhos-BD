@@ -1,5 +1,7 @@
 package Controller;
 
+import DAO.AgenciaDAO;
+import DAO.BancoDAO;
 import DAO.ClienteDAO;
 import DAO.ContaBancariaDAO;
 import Modelos.Classes_casodeuso.*;
@@ -28,6 +30,8 @@ public class ClienteController {
             
             ClienteDAO clienteDAO = new ClienteDAO(conn);
             ContaBancariaDAO contaDAO = new ContaBancariaDAO(conn);
+            AgenciaDAO agenciaDAO = new AgenciaDAO(conn);
+            BancoDAO bancoDAO = new BancoDAO(conn);
             
             Cliente cliente = clienteDAO.buscarClientePorCPF(cpf);
             
@@ -45,7 +49,25 @@ public class ClienteController {
                     System.out.println("Nenhuma conta encontrada.");
                 } else {
                     for (ContaBancaria c : contas) {
-                        System.out.println("> ID Conta: " + c.getIdConta() + " | Saldo: R$ " + String.format("%.2f", c.getSaldo()));
+                        int numAgencia = c.getAgencia().getIdAgencia();
+                        int codBanco = c.getAgencia().getBanco().getCodBanco();
+                        
+                        Banco banco = bancoDAO.buscarBancoPorId(codBanco);
+                        String nomeBanco = (banco != null) ? banco.getNomeBanco() : "Desconhecido";
+
+                        List<String> emails = agenciaDAO.listarEmailsAgencia(numAgencia, codBanco);
+                        List<String> telefones = agenciaDAO.listarTelefonesAgencia(numAgencia, codBanco);
+
+
+                        System.out.println("\n> ID Conta: " + c.getIdConta() + " | Saldo: R$ " + String.format("%.2f", c.getSaldo()));
+                        System.out.println("  Banco: " + codBanco + " - " + nomeBanco);
+                        System.out.println("  Agência: " + numAgencia);
+                        
+                        System.out.print("  E-mail(s) da Agência: ");
+                        System.out.println(emails.isEmpty() ? "Nenhum cadastrado" : String.join(", ", emails));
+                        
+                        System.out.print("  Telefone(s) da Agência: ");
+                        System.out.println(telefones.isEmpty() ? "Nenhum cadastrado" : String.join(" | ", telefones));
                     }
                 }
             } else {

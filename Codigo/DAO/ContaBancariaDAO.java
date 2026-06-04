@@ -33,7 +33,7 @@ public class ContaBancariaDAO {
     public void atualizarSaldo(int idConta, double novoSaldo) throws SQLException {
         String sql = "UPDATE Contabancaria SET Saldo = ? WHERE idContabancaria = ?";
         try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
-            stmt.setString(1, String.valueOf(novoSaldo)); // Saldo no E-R é VARCHAR
+            stmt.setString(1, String.valueOf(novoSaldo)); 
             stmt.setInt(2, idConta);
             stmt.executeUpdate();
         }

@@ -15,6 +15,13 @@ public class TransacaoDAO {
             try {
                 if (tipoMovimentacao == 2) {
                     valor = valor * -1;
+                
+
+                    if (conta.getSaldo() < valor) {
+                    System.out.println("Saldo insuficiente para realizar este transacao.");
+                    return false;
+                    }
+
                 }
 
                 String sqlTipo = "INSERT INTO Tipotransacao (Tipotransacao) VALUES (?)";

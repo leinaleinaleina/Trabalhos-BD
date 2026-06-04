@@ -1,7 +1,7 @@
 package Controller;
 
-import Modelos.Classes_genericas.Email;
 import DAO.EmailDAO;
+import Modelos.Classes_genericas.Email;
 import java.sql.Connection;
 import java.sql.SQLException;
 
@@ -9,8 +9,6 @@ public class EmailController {
 
     public boolean cadastrarEmailCliente(String enderecoEmail, int idCliente) {
         try (Connection conn = ConexaoBD.conectar()) {
-            // Como é apenas uma tabela, não precisamos estritamente de setAutoCommit(false),
-            // mas é bom manter o padrão de tratamento de erros.
             
             Email email = new Email();
             email.setEmail(enderecoEmail);

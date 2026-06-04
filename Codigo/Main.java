@@ -189,6 +189,7 @@ public class Main {
             System.out.println("\n--- DADOS DA CONTA ---");
             System.out.println("ID Conta: " + contaInfo.getIdConta());
             System.out.println("ID Cliente Vinculado: " + contaInfo.getCliente().getIdCliente());
+            System.out.println("Código do Banco: " + contaInfo.getAgencia().getBanco().getCodBanco());
             System.out.println("Número da Agência: " + contaInfo.getAgencia().getIdAgencia());
             System.out.println("SALDO ATUAL: R$ " + String.format("%.2f", contaInfo.getSaldo()));
         }

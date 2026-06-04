@@ -9,7 +9,6 @@ public class TipolograDAO {
     public TipolograDAO(Connection conexao) { this.conexao = conexao; }
 
     public int cadastrar(Tipologra tipo) throws SQLException {
-        // No seu modelo a tabela chama-se Tipo_logradouro
         String sql = "INSERT INTO Banco_agencia.Tipo_logradouro (Tipo_logradouro) VALUES (?)";
         try (PreparedStatement stmt = conexao.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             stmt.setString(1, tipo.getTipologra());
